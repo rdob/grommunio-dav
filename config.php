@@ -25,4 +25,8 @@ define('MAX_SYNC_ITEMS', 1000);
 // Developer mode: verifies log messages
 define('DEVELOPER_MODE', true);
 
+// Global Address List (GAL) as read-only CardDAV address book
+define('GAL_ENABLED', false);
+define('GAL_CACHE_TTL', 3600); // seconds
+
 // Logging: adjust in glogger.ini
