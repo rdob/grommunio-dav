@@ -26,6 +26,13 @@ class DAVACL extends Plugin {
 	 * @return array
 	 */
 	public function getACL($node) {
+		if (is_string($node)) {
+			$node = $this->server->tree->getNodeForPath($node);
+		}
+		if ($node instanceof GalAddressBook || $node instanceof GalCard) {
+			return $node->getACL();
+		}
+
 		return [
 			[
 				'privilege' => '{DAV:}all',
