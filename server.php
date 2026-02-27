@@ -12,7 +12,6 @@ namespace grommunio\DAV;
 
 use Sabre\CalDAV\CalendarRoot;
 use Sabre\CalDAV\ICSExportPlugin;
-use Sabre\CardDAV\AddressBookRoot;
 use Sabre\CardDAV\Plugin;
 use Sabre\DAV\Server;
 use Sabre\DAV\Version;
@@ -51,7 +50,7 @@ $gCaldavBackend = new GrommunioCalDavBackend($gdavBackend, new GLogger('cal'));
 // Setting up the directory tree
 $nodes = [
 	new PrincipalCollection($principalBackend),
-	new AddressBookRoot($principalBackend, $gCarddavBackend),
+	new GalAddressBookRoot($principalBackend, $gCarddavBackend, $gdavBackend),
 	new CalendarRoot($principalBackend, $gCaldavBackend),
 ];
 
